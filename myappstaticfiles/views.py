@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import requests
 
+import requests
 from django.conf import settings
+# from django.contrib.sites import requests
+
 from django.utils import timezone
 #import mammoth
 from django.shortcuts import render
@@ -29,7 +31,7 @@ def home(request):
         From_mail=settings.EMAIL_HOST_USER
         to_list=[email]
         send_mail(subject,email_message,From_mail,to_list,fail_silently=False)
-        res=requests.post('https://textbelt.com/text', {
+        res =  requests.post('https://textbelt.com/text', {
             'phone': mobn,
             'message': 'Hello world',
             'key': 'textbelt',
